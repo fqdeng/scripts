@@ -24,13 +24,7 @@ echo "✅ 权限检查通过 (root)"
 echo "🔄 正在备份并覆盖 APT 软件源为中国科学技术大学 (USTC) 镜像..."
 
 # 为了动态获取系统代号, 可能需要 lsb-release
-if ! command -v lsb_release &>/dev/null; then
-  echo "未找到 lsb_release 命令，正在尝试安装..."
-  # 临时更新一下以安装此工具
-  apt-get update
-  apt-get install -y lsb-release
-fi
-CODENAME=$(lsb_release -cs)
+CODENAME="trixie"
 echo "✅ 检测到系统代号为: $CODENAME"
 
 # 检查新版 Debian (Bookworm/Trixie) 的 sources 文件
